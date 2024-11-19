@@ -1,0 +1,30 @@
+<div class="login-wrapper" layout="row" layout-align="center center">
+<mat-grid-list cols="1" rowHeight="2:1"> 
+  
+  <mat-grid-tile class="top-center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Log in</mat-card-title>
+      </mat-card-header>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <input matInput placeholder="Username" formControlName="username">
+            <!--<mat-error app-error-message [control]="loginForm.get('username')!"></mat-error> -->
+            <mat-error app-error-message [control]="loginForm.get('username')!" [fieldName]="'Username'"></mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="example-full-width">
+            <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <!--<mat-error app-error-message [control]="loginForm.get('password')!"></mat-error> -->
+            <mat-error app-error-message [control]="loginForm.get('password')!" [fieldName]="'Password'"></mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button extended color="primary" class="btn-block">Log in</button>
+      </form>
+    </mat-card>
+  </mat-grid-tile> <!-- more tiles --> 
+</mat-grid-list>
+  </div>

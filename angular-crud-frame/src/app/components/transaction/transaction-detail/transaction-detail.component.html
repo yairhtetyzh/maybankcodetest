@@ -1,0 +1,67 @@
+<mat-grid-list cols="12" rowHeight="100px">
+        
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <span class="mat-h1">Post Detail</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="9" [rowspan]="1"></mat-grid-tile>
+    
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <button mat-raised-button color="success" (click)="goBack()">
+            Back
+        </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <mat-card class="mx-5">
+    <div class="container">
+      <div class="row">
+  <form [formGroup]="transactionForm" (ngSubmit)="onSave()">
+    <div class="col-7 mt-2">
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Account Number</mat-label>
+            <input formControlName="accountNumber" matInput placeholder="Account Number" name="accountNumber" [(ngModel)]="transaction.accountNumber" readonly>
+            <mat-error app-error-message [control]="transactionForm.get('accountNumber')!" [fieldName]="'accountNumber'"></mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-7 mt-2">
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Trx Amount</mat-label>
+            <input formControlName="trxAmount" matInput placeholder="Trx Amount" name="trxAmount" [(ngModel)]="transaction.trxAmount" readonly>
+            <mat-error app-error-message [control]="transactionForm.get('trxAmount')!" [fieldName]="'TrxAmount'"></mat-error>
+        </mat-form-field>
+    </div>
+  
+    <div class="col-7 mt-2">
+      <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput placeholder="Description" name="description" [(ngModel)]="transaction.description">
+          <mat-error app-error-message [control]="transactionForm.get('description')!" [fieldName]="'description'"></mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div class="col-7 mt-2">
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Trx Date Time</mat-label>
+            <input formControlName="trxDateTime" matInput placeholder="Trx Date Time" name="trxDateTime" [(ngModel)]="transaction.trxDateTime" readonly="true">
+            <mat-error app-error-message [control]="transactionForm.get('trxDateTime')!" [fieldName]="'trxDateTime'"></mat-error>
+        </mat-form-field>
+      </div>
+
+    <div class="col-7 mt-2">
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Customer Id</mat-label>
+            <input formControlName="customerId" matInput placeholder="Customer Id" name="customerId" [(ngModel)]="transaction.customerId" readonly>
+            <mat-error app-error-message [control]="transactionForm.get('customerId')!" [fieldName]="'customerId'"></mat-error>
+        </mat-form-field>
+      </div>
+  
+  <div class="col-4 mt-2 offset-md-4 mb-4">
+    <button mat-raised-button extended color="primary" [disabled]="!transactionForm.valid" class="example-full-width">
+      <mat-icon>save</mat-icon>Save</button>
+  </div>
+  
+  </form>
+  </div>
+  </div>
+  </mat-card>
