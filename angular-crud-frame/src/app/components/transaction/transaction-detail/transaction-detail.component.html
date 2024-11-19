@@ -1,19 +1,18 @@
-<mat-grid-list cols="12" rowHeight="100px">
+
+  <mat-card >
+    <mat-grid-list cols="12" rowHeight="100px">
         
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
-        <span class="mat-h1">Transaction Detail</span>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="9" [rowspan]="1"></mat-grid-tile>
-    
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <button mat-raised-button color="success" (click)="goBack()">
-            Back
-        </button>
-    </mat-grid-tile>
-  </mat-grid-list>
-  
-  
-  <mat-card class="mx-5">
+        <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <span class="mat-h1">Transaction Detail</span>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="7" [rowspan]="1"></mat-grid-tile>
+        
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <button mat-raised-button color="success" (click)="goBack()">
+                Back
+            </button>
+        </mat-grid-tile>
+      </mat-grid-list>
     <div class="container">
       <div class="row">
   <form [formGroup]="transactionForm" (ngSubmit)="onSave()">
