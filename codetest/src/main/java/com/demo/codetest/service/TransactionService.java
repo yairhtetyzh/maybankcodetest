@@ -154,7 +154,11 @@ public class TransactionService implements ITransactionService {
 			Thread.currentThread().interrupt();
 			logger.error("Lock acquisition interrupted ", ErrorCode.ERROR_000025.getDesc());
 			throw new CustomWebServiceException(ErrorCode.ERROR_000025.getCode(), ErrorCode.ERROR_000025.getDesc());
-		} 
+		} finally {
+			if (lock.isHeldByCurrentThread()) {
+				lock.unlock();
+			}
+		}
 	}
 
 	private Transaction checkValidTransaction(Long id) {
